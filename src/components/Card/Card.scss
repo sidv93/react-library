@@ -1,0 +1,14 @@
+@import '../../stylesheets/utils/Colors';
+@import '../../stylesheets/mixins/Flex';
+
+.Card {
+    @include flex($align: center, $justify: center);
+    border-radius: 8px;
+    width: 300px;
+    background-color: $card_bg;
+    box-shadow: 0 0 5px 0 rgba(80, 80, 80, 0.05);
+
+    &:hover {
+        box-shadow: 0 0 15px 0 rgba(30, 31, 38, 0.1);
+    }
+}
