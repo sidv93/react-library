@@ -1,0 +1,76 @@
+@mixin flex-variant(
+  $display,
+  $direction: false,
+  $align: false,
+  $justify: false,
+  $wrap: false,
+  $gap: false,
+  $shrink: false,
+  $basis: false,
+) {
+  display: $display;
+
+  @if $direction {
+    flex-direction: $direction;
+  }
+
+  @if $align {
+    align-items: $align;
+  }
+
+  @if $justify {
+    justify-content: $justify;
+  }
+
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+
+  @if $gap {
+    gap: $gap;
+  }
+
+  @if $shrink {
+    flex: $shrink;
+  }
+
+  @if $basis {
+    flex-basis: $basis;
+  }
+}
+
+@mixin flex(
+  $direction: false,
+  $align: false,
+  $justify: false,
+  $wrap: false,
+  $gap: false,
+  $shrink: false,
+  $basis: false
+) {
+  @include flex-variant(
+    flex,
+    $direction: $direction,
+    $align: $align,
+    $justify: $justify,
+    $wrap: $wrap,
+    $gap: $gap,
+    $shrink: $shrink,
+    $basis: $basis,
+  );
+}
+
+@mixin inline-flex(
+  $direction: false,
+  $align: false,
+  $justify: false,
+  $wrap: false
+) {
+  @include flex-variant(
+    inline-flex,
+    $direction: $direction,
+    $align: $align,
+    $justify: $justify,
+    $wrap: $wrap
+  );
+}
