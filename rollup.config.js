@@ -1,10 +1,12 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import cleaner from 'rollup-plugin-cleaner';
 import babel from '@rollup/plugin-babel';
 import filesize from 'rollup-plugin-filesize';
 import { terser } from 'rollup-plugin-terser';
 import external from 'rollup-plugin-peer-deps-external';
-import scss from 'rollup-plugin-scss'
+import scss from 'rollup-plugin-scss';
+import postcss from 'rollup-plugin-postcss';
 
 export default {
     input: 'src/index.js',
@@ -24,11 +26,22 @@ export default {
         'react-dom'
     ],
     plugins: [
-        scss(),
+        cleaner({
+            targets: ['./dist'],
+        }),
+        scss({
+            output: "dist/styles.css",
+            failOnError: true,
+        }),
+        postcss({
+            // plugins: [],
+            minimize: true,
+        }),
         resolve({
             extensions: ['.js', '.jsx']
         }),
         babel({
+            babelHelpers: 'bundled',
             presets: ['@babel/preset-react'],
             exclude: 'node_modules/**',
         }),
@@ -36,7 +49,7 @@ export default {
         filesize(),
         commonjs({
             include: ['node_modules/**']
-          }),
+        }),
         terser()
     ]
 };
