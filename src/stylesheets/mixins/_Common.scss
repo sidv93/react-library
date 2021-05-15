@@ -1,0 +1,13 @@
+@import "../utils/Colors";;
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin border($width: 1px, $style: solid, $color: $pale_blue) {
+  border: $width $style $color;
+}

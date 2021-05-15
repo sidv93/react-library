@@ -1,0 +1,75 @@
+@import '../utils/Colors';
+
+@font-face {
+    font-family: Roboto;
+    src: url('../../../assets/fonts/Roboto-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto Light;
+    src: url('../../../assets/fonts/Roboto-Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Roboto Medium;
+    src: url('../../../assets/fonts/Roboto-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Roboto Bold;
+    src: url('../../../assets/fonts/Roboto-Bold.ttf');
+    font-weight: 700;
+}
+
+@mixin font($size: 16px, $color: $page_title_color, $height: normal, $type: normal) {
+    font-size: $size;
+    color: $color;
+    line-height: $height;
+
+    @if $type == normal {
+        font-family: Roboto;
+    } @else if $type == medium {
+        font-family: Roboto Medium;
+    } @else if $type == bold {
+        font-family: Roboto Bold;
+    }
+}
+
+@mixin font-heading() {
+    @include font($size: 20px, $type: medium);
+}
+
+@mixin font-subheading() {
+    @include font($size: 18px, $height: 1.33);
+}
+
+@mixin font-card-heading() {
+    @include font($size: 16px, $height: 1.5, $type: medium);
+}
+
+@mixin font-section-heading() {
+    @include font($size: 18px, $color: $very_dark_gray, $type: medium);
+}
+
+@mixin font-button-text() {
+    @include font($size: 14px, $color: $button_text_color, $type: medium);
+}
+
+@mixin font-description() {
+    @include font($size: 14px, $color: $very_dark_gray_1);
+}
+
+@mixin font-list-option() {
+    @include font($size: 14px, $color: $button_text_color);
+}
+
+@mixin font-label() {
+    @include font($size: 16px, $color: $button_text_color, $type: medium);
+}
+
+@mixin font-list() {
+    @include font($size: 14px, $color: $very_dark_gray, $type: medium);
+}

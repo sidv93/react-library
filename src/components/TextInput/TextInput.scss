@@ -1,0 +1,21 @@
+@import '../../stylesheets/utils/Colors';
+@import '../../stylesheets/mixins/Common';
+@import '../../stylesheets/mixins/Flex';
+@import '../../stylesheets/mixins/Font';
+
+.TextInput {
+    @include flex($direction: column);
+    margin: 0 0 10px 0;
+    
+    &__field {
+        @include border;
+        @include font($size: 16px, $color: $very_dark_gray, $type: medium);
+        padding: 18px 20px;
+        border-radius: 4px;
+        box-shadow: $sm_form_input_shadow;
+
+        &.error {
+            border-color: $very_light_red;
+        }
+    }
+}
